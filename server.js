@@ -31,7 +31,7 @@ app.post('/api/login', async (req, res) => {
   const { email, password } = req.body;
 
   try {
-    // Dummy authentication (replace with Firebase Auth or your logic)
+ 
     if (email === 'john@example.com' && password === 'password123') {
       // Generate JWT
       const token = jwt.sign(
