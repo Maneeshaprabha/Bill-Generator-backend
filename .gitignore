@@ -1,0 +1,13 @@
+# Ignore node modules and environment files
+node_modules/
+.env
+
+# Ignore build directories
+dist/
+build/
+
+# Ignore OS and editor-specific files
+.DS_Store
+Thumbs.db
+.vscode/
+.vercel
