@@ -1,6 +1,7 @@
-// backend/config/firebase.js
-const admin = require("firebase-admin");
-require("dotenv").config();
+import admin from 'firebase-admin';
+import dotenv from 'dotenv';
+
+dotenv.config();
 
 const serviceAccount = {
   projectId: process.env.FIREBASE_PROJECT_ID,
@@ -8,11 +9,17 @@ const serviceAccount = {
   clientEmail: process.env.FIREBASE_CLIENT_EMAIL,
 };
 
-admin.initializeApp({
-  credential: admin.credential.cert(serviceAccount),
-});
+try {
+  admin.initializeApp({
+    credential: admin.credential.cert(serviceAccount),
+  });
+  console.log("Firebase initialized successfully");
+} catch (error) {
+  console.error("Error initializing Firebase:", error.message);
+  process.exit(1);
+}
 
-const auth = admin.auth();
-const db = admin.firestore();
+const auth = admin.auth(); 
+const db = admin.firestore(); 
 
-module.exports = { auth, db };
+export { auth, db };
