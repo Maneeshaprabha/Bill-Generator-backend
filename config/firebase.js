@@ -19,7 +19,7 @@ try {
   process.exit(1);
 }
 
-const auth = admin.auth(); 
-const db = admin.firestore(); 
+const auth = admin.auth();
+const db = admin.firestore();
 
 export { auth, db };
